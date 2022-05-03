@@ -11,25 +11,15 @@ class InfoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-      height: 40,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Colors.white,
-      ),
-      child: Row(
-        children: [
-          Icon(
-            _icon,
-            color: Colors.teal,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Text(_info)
-        ],
+    return Card(
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+      color: Colors.white,
+      child: ListTile(
+        leading: Icon(
+          _icon,
+          color: Colors.blue[700],
+        ),
+        title: Text(_info),
       ),
     );
   }
@@ -40,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blue[700],
         body: SafeArea(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -65,10 +55,18 @@ class MyApp extends StatelessWidget {
             Text(
               'FLUTTER DEVELOPER',
               style: TextStyle(
-                  color: Colors.teal.shade100,
+                  color: Colors.blue.shade100,
                   fontFamily: 'Source Sans Pro',
                   fontSize: 20,
                   fontWeight: FontWeight.normal),
+            ),
+            SizedBox(
+              height: 20,
+              width: 150,
+              child: Divider(
+                color: Colors.teal.shade200,
+                height: 1,
+              ),
             ),
             InfoBox('11973645787', Icons.phone),
             InfoBox('fernando@teste.com.br', Icons.email)
